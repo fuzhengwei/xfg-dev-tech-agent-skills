@@ -10,7 +10,7 @@
 skill 是什么？它像是一本技能书📚，把一阳指（`mcp/py/shell/js`）和狮吼功（`prompt`）合成了一整招。缩短了从用户把提示词发给AI客户端，进行分析，决策，再到 mcp 执行的过程，**让诉求直达结果**，token 减少了，幻觉减少了！
 
 <div align="center">
-    <img src="/Users/fuzhengwei/Desktop/road-map-agent-skill-00.png" width="250px">
+    <img src="https://bugstack.cn/images/roadmap/tutorial/road-map-agent-skill-00.png" width="250px">
 </div>
 
 
@@ -23,7 +23,7 @@ skill 是什么？它像是一本技能书📚，把一阳指（`mcp/py/shell/js
 如图，演示了一段 skill 的编写案例；
 
 <div align="center">
-    <img src="/Users/fuzhengwei/Desktop/road-map-agent-skill-02.png" width="850px">
+    <img src="https://bugstack.cn/images/roadmap/tutorial/road-map-agent-skill-02.png" width="850px">
 </div>
 
 - 场景：案例中体现的是，对电脑性能检测后，用一段下达命令的方式，告知用户如何优化电脑性能。
@@ -41,13 +41,13 @@ skill 是什么？它像是一本技能书📚，把一阳指（`mcp/py/shell/js
 ### 1. 测试工程(skill)
 
 <div align="center">
-    <img src="/Users/fuzhengwei/Desktop/road-map-agent-skill-03.png" width="300px">
+    <img src="https://bugstack.cn/images/roadmap/tutorial/road-map-agent-skill-03.png" width="300px">
 </div>
 
 - 地址：[https://github.com/fuzhengwei/xfg-dev-tech-agent-skills](https://github.com/fuzhengwei/xfg-dev-tech-agent-skills)
 - 说明：
-  - 工程里 `docs/skills` 下面就是一个个技能书，battle-plan、pdf，每一个技能书下都必须有一个 SKILL.md 文件，作为入口。这个文件，可以描述 prompt 提示词，以及在提示词中明确给出可执行的脚本(py\shell\js)和可参考的文档。
-  - 此外，在 xfg-dev-tech-app 下，test 里编码的是 SpringAiToolTest 测试技能书案例。
+    - 工程里 `docs/skills` 下面就是一个个技能书，battle-plan、pdf，每一个技能书下都必须有一个 SKILL.md 文件，作为入口。这个文件，可以描述 prompt 提示词，以及在提示词中明确给出可执行的脚本(py\shell\js)和可参考的文档。
+    - 此外，在 xfg-dev-tech-app 下，test 里编码的是 SpringAiToolTest 测试技能书案例。
 
 ### 2. opencode 使用
 
@@ -95,7 +95,7 @@ fuzhengwei@fuzhengweideMacBook-Pro-2 .opencode % cat opencode.json
 #### 2.3 使用skill
 
 <div align="center">
-    <img src="/Users/fuzhengwei/Desktop/road-map-agent-skill-04.png" width="600px">
+    <img src="https://bugstack.cn/images/roadmap/tutorial/road-map-agent-skill-04.png" width="600px">
 </div>
 
 - 提问：`基于 skill 解答，电脑性能优化`
@@ -129,7 +129,7 @@ pip3 install skillport
 #### 3.3 mcp 配置
 
 <div align="center">
-    <img src="/Users/fuzhengwei/Desktop/road-map-agent-skill-05.png" width="600px">
+    <img src="https://bugstack.cn/images/roadmap/tutorial/road-map-agent-skill-05.png" width="600px">
 </div>
 
 ```java
@@ -149,7 +149,7 @@ pip3 install skillport
 #### 3.4 工具使用
 
 <div align="center">
-    <img src="/Users/fuzhengwei/Desktop/road-map-agent-skill-01.png" width="400px">
+    <img src="https://bugstack.cn/images/roadmap/tutorial/road-map-agent-skill-01.png" width="400px">
 </div>
 
 当你选择 Builder with MCP（涵盖了skillport-mcp），之后提问 `基于 skill 解答，电脑性能优化` 那么就可以得到上面的命令了。
@@ -215,6 +215,3 @@ public class SpringAiToolTest {
 
 - 在 Spring AI 程序中，添加 `skillport-mcp` 服务，之后在 ChatModel 模型里，使用 mcp 服务。
 - 如果你正在开发一些 AI Agent，那么也可以把 `skillport-mcp`  配置进去使用。如小傅哥带着做 [AI Agent 智能体项目](https://bugstack.cn/md/project/ai-knowledge/ai-knowledge.html) 你现在可以加进去更多的扩展操作了。
-
-
-
