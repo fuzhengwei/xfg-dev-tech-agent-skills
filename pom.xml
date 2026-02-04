@@ -137,6 +137,13 @@
                 <version>${google.adk.version}</version>
             </dependency>
 
+          <dependency>
+              <groupId>org.springaicommunity</groupId>
+              <artifactId>spring-ai-agent-utils</artifactId>
+              <version>0.4.2</version>
+          </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
