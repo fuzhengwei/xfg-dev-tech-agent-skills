@@ -29,6 +29,9 @@ import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.util.MimeTypeUtils;
 
+import org.springaicommunity.agent.tools.FileSystemTools;
+import org.springaicommunity.agent.tools.SkillsTool;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -56,6 +59,10 @@ public class SpringAiToolTest {
                 .embeddingsPath("v1/embeddings")
                 .build();
 
+        ToolCallback toolCallback = SkillsTool.builder()
+                .addSkillsDirectory("/Users/fuzhengwei/coding/gitcode/KnowledgePlanet/road-map/xfg-dev-tech-agent-skills/docs/skills")
+                .build();
+
         ChatModel chatModel = OpenAiChatModel.builder()
                 .openAiApi(openAiApi)
                 .defaultOptions(OpenAiChatOptions.builder()
@@ -63,6 +70,7 @@ public class SpringAiToolTest {
                         .toolCallbacks(new ArrayList<>() {{
                             addAll(List.of(sseMcpClient()));
                         }})
+                        //  .toolCallbacks(toolCallback)       
                         .build())
                 .build();
 
