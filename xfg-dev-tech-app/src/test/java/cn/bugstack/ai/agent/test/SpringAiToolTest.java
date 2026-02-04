@@ -58,7 +58,7 @@ public class SpringAiToolTest {
                 .completionsPath("v1/chat/completions")
                 .embeddingsPath("v1/embeddings")
                 .build();
-
+        // https://github.com/spring-ai-community/spring-ai-agent-utils
         ToolCallback toolCallback = SkillsTool.builder()
                 .addSkillsDirectory("/Users/fuzhengwei/coding/gitcode/KnowledgePlanet/road-map/xfg-dev-tech-agent-skills/docs/skills")
                 .build();
