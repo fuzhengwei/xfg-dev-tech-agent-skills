@@ -21,6 +21,7 @@ import io.reactivex.rxjava3.core.Flowable;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 import org.springframework.ai.openai.OpenAiChatModel;
@@ -54,7 +55,7 @@ public class SpringAiToolTest {
     public static void main(String[] args) {
         OpenAiApi openAiApi = OpenAiApi.builder()
                 .baseUrl("https://apis.***.cn")
-                .apiKey("sk-efen7WX8Q8vGvBps3f7c9a34578d41BbBc5*****")
+                .apiKey("sk-iVDf66xXEatHFxnK9dFc96Bb5c****")
                 .completionsPath("v1/chat/completions")
                 .embeddingsPath("v1/embeddings")
                 .build();
@@ -67,17 +68,21 @@ public class SpringAiToolTest {
                 .openAiApi(openAiApi)
                 .defaultOptions(OpenAiChatOptions.builder()
                         .model("gpt-4.1")
-                        .toolCallbacks(new ArrayList<>() {{
-                            addAll(List.of(sseMcpClient()));
-                        }})
+//                        .toolCallbacks(new ArrayList<>() {{
+//                            addAll(List.of(sseMcpClient()));
+//                        }})
                         //  .toolCallbacks(toolCallback)       
                         .build())
                 .build();
 
-//        String call = chatModel.call("你哪有哪些 skill 工具能力");
-        String call = chatModel.call("基于 skill 解答，电脑性能优化");
+        ChatClient client = ChatClient.builder(chatModel).defaultToolCallbacks(toolCallback).build();
 
-        log.info("测试结果:{}", call);
+//        String call = chatModel.call("你哪有哪些 skill 工具能力");
+        String modelCall = chatModel.call("基于 skill 解答，电脑性能优化");
+        System.out.println(modelCall);
+
+        ChatClient.CallResponseSpec call = client.prompt("基于 skill 解答，电脑性能优化").call();
+        log.info("测试结果:{}", call.content());
 
     }
 
